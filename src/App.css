@@ -1,11 +1,19 @@
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-/* Add margin-top to content to account for navbar */
 .content {
-  margin-top: 60px; /* Adjust this value based on the height of your navbar */
+  margin-top: 60px;
+  padding: 2rem;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.margin-top {
+  margin-top: 4rem;
 }

@@ -1,0 +1,104 @@
+/* Members List */
+.members-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .member-item {
+    background-color: rgba(46, 77, 54, 0.8); /* Forest green with slight transparency */
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .member-item p {
+    color: #ded3c5; /* Light beige for text */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .member-item strong {
+    color: #ffffff; /* White for emphasis */
+  }
+  
+  /* Paid/Unpaid Colors */
+  .paid {
+    color: #00c851; /* Green for paid */
+  }
+  
+  .unpaid {
+    color: #ff4444; /* Red for unpaid */
+  }
+  
+  /* Form */
+  .edit-member-form {
+    background-color: rgba(43, 43, 43, 0.9); /* Dark transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-member-form label {
+    font-size: 1rem;
+    color: #ffffff;
+  }
+  
+  .edit-member-form input,
+  .edit-member-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #555;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    color: #ffffff;
+  }
+  
+  .edit-member-form button {
+    background-color: #e0a600; /* Warm yellow button */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+  }
+  
+  .edit-member-form button:hover {
+    background-color: #d49d00; /* Darker on hover */
+  }
+  
+  /* Ensure the content is not hidden behind the navbar */
+
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .members-list {
+      padding: 1rem;
+    }
+    .member-item,
+    .edit-member-form {
+      padding: 1rem;
+    }
+
+    .margin-top {
+        margin-top: 6rem;
+    }
+
+  }
+
+  @media (max-width: 435px) {
+
+    .margin-top {
+        margin-top: 10rem;
+    }
+
+  }

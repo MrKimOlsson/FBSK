@@ -2,8 +2,9 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from './context/AuthContext';
 import Home from './pages/Home';
+import MembersPage from './pages/MembersPage'
 import Register from "./components/Register";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import GoogleLogin from "./components/GoogleLogin";
 import Navbar from "./components/Navbar";
 
@@ -16,6 +17,7 @@ function App() {
       <div className="content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/members" element={<MembersPage />} />
           <Route
             path="/register"
             element={user && role === 'admin' ? <Register /> : <Navigate to="/" />}

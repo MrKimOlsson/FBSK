@@ -1,67 +1,82 @@
-/* src/index.css */
-
-/* src/index.css (or other global CSS file) */
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-/* Basic reset and base styles */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  min-width: 320px;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #e1e1e1;
+  background: #1a1a1a url('/images/forest-texture.jpg') no-repeat center center fixed; /* A subtle forest texture */
+  background-size: cover;
   min-height: 100vh;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
-
+/* Links */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #e0a600; /* Warm yellow accent */
+  text-decoration: none;
 }
 a:hover {
-  color: #535bf2;
+  color: #d49d00; /* Darker yellow on hover */
 }
 
+/* Buttons */
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border: none;
+  padding: 0.75em 1.5em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: #2e4d36; /* Deep forest green for buttons */
+  color: #f1f1f1;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.25s ease;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: #3b7c59; /* Lighter green on hover */
 }
 
-/* Light theme styles */
-@media (prefers-color-scheme: light) {
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #f1f1f1;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #cccccc;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
   body {
-    color: #213547;
-    background-color: #ffffff;
+    padding: 1rem;
   }
-  a:hover {
-    color: #747bff;
+  h1 {
+    font-size: 2rem;
   }
   button {
-    background-color: #f9f9f9;
-    color: #000;
+    width: 100%;
   }
 }
