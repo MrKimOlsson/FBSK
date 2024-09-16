@@ -1,12 +1,36 @@
-/* Reset and Base Styles */
+/* Index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+/* För WebKit-baserade webbläsare (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: none; /* Göm scrollbaren */
+  scrollbar-color: transparent transparent; /* Transparent scrollbar */
+}
+
+/* För att säkerställa att innehållet inte hoppar åt vänster */
+html {
+  overflow: -moz-scrollbars-none; /* Göm scrollbars för äldre Firefox-versioner */
+  -ms-overflow-style: none; /* För Internet Explorer och äldre Edge */
 }
 
 body {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: 'Nunito', sans-serif; */
+  /* font-family: 'Montserrat', sans-serif; */
   color: #e1e1e1;
   background: #1a1a1a url('/images/forest-texture.jpg') no-repeat center center fixed; /* A subtle forest texture */
   background-size: cover;
@@ -36,6 +60,7 @@ button {
   color: #f1f1f1;
   cursor: pointer;
   transition: background-color 0.25s ease;
+  font-family: "Caudex", serif;
 }
 button:hover {
   background-color: #3b7c59; /* Lighter green on hover */
@@ -46,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: #f1f1f1;
   margin-bottom: 1rem;
+  font-family: "Caudex", serif;
 }
 
 h1 {
@@ -59,6 +85,9 @@ h2 {
 p {
   margin-bottom: 1rem;
   color: #cccccc;
+  font-family: "Caudex", serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 /* Container */

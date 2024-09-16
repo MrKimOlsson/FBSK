@@ -1,7 +1,7 @@
 /* General Navbar Styles */
 nav {
   background-color: rgba(43, 43, 43, 0.95);
-  padding: 15px 20px;
+  /* padding: 15px 20px; */
   position: fixed;
   top: 0;
   left: 0;
@@ -12,16 +12,26 @@ nav {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  font-family: "MedievalSharp", cursive;
+  font-weight: 400;
+  font-style: normal;
+  height: 68px;
+  /* padding: 0;
+  margin: 0; */
 }
 
 /* Navbar Container */
 .nav-container {
   display: flex;
   justify-content: space-between;
+  padding: 0 1rem;
   align-items: center;
   width: 100%;
 }
-
+.logo-img {
+  height: 68px;
+  margin-top: 12px;
+}
 /* Logo Styles */
 .nav-logo {
   font-size: 1.5rem;
@@ -38,18 +48,32 @@ nav {
 /* Navbar List Styles */
 .nav-links {
   list-style-type: none;
-  padding: 0;
+  padding: 4rem 1rem;
   margin: 0;
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
   align-items: center;
+  position: fixed;
+  top: 0;
+  right: -300px; /* Initially hidden off-screen */
+  height: 100%;
+  width: 250px; /* Sidebar width */
+  background-color: rgba(43, 43, 43, 0.95);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease; /* Smooth slide-in animation */
+  z-index: 100;
+}
+
+/* Show menu when toggled */
+.nav-links.show-menu {
+  right: 0; /* Slide the menu in */
+}
+
+.nav-links li {
+  margin: 10px 0;
 }
 
 /* Link Styles */
-.nav-links li {
-  margin: 0;
-}
-
 .nav-links li a,
 .nav-links li button {
   color: #f1f1f1;
@@ -70,12 +94,24 @@ nav {
   color: #e0a600;
 }
 
-/* Mobile Menu Toggle */
+/* Hamburger Menu Toggle */
 .menu-toggle {
-  display: none; /* Hidden on larger screens */
   cursor: pointer;
   font-size: 1.5rem;
   color: #f1f1f1;
+  z-index: 101; /* Ensure toggle stays on top */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Rotate to X when menu is open */
+.menu-toggle.open {
+  transform: rotate(90deg); /* Optional: slight rotation effect */
+}
+
+
+.nav-heading {
+  margin-top: 3rem;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
 }
 
 /* Mobile Menu Styles */
@@ -86,13 +122,11 @@ nav {
     top: 60px; /* Space for navbar */
     left: 0;
     width: 100%;
-    background-color: rgba(43, 43, 43, 0.95);
+    background-color: rgba(43, 43, 43, 0.925);
     text-align: center;
     display: none; /* Initially hidden */
     z-index: 100; /* Ensure menu is on top */
-    overflow-y: auto; /* Allow scrolling */
-    max-height: calc(100vh - 60px); /* Adjust height */
-    padding: 0;
+    padding: 2rem 0 2rem 0;
   }
 
   .nav-links.show-menu {
@@ -105,16 +139,14 @@ nav {
 
   .nav-links li {
     margin: 0;
+    padding: .5rem;
   }
 
   .nav-links li a,
   .nav-links li button {
-    padding: 15px;
+    /* padding: 15px; */
     font-size: 1rem;
   }
 }
 
-/* Ensure content is visible and not overlapped by the navbar */
-body {
-  margin-top: 60px; /* Adjust based on navbar height */
-}
+

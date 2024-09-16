@@ -1,0 +1,31 @@
+.hero {
+    position: absolute;
+    width: 100vw;
+    height: 50vh; /* Justera höjd efter behov */
+    overflow: hidden;
+    top: 68px;
+    left: 0;
+  }
+  
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* Gör att bilden är bakom innehållet men synlig */
+  }
+  
+  .hero-content {
+    position: relative;
+    top: 15vh;
+    /* justify-content: center; */
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    max-width: 100%;
+    z-index: 1; /* Innehållet är överst */
+  }
+  
+  

@@ -264,14 +264,14 @@ return (
             <ul className="members-list">
               {admins.map((admin) => (
                 <li key={admin.id} className="member-item">
-                  <p><strong>Name:</strong> {admin.firstname && admin.lastname ? `${admin.firstname} ${admin.lastname}` : 'No name provided'}</p>
-                  <p><strong>Email:</strong> {admin.email || 'No email provided'}</p>
-                  <p><strong>Member Since:</strong> {admin.joined ? new Date(admin.joined.seconds * 1000).toLocaleDateString() : 'No membership info'}</p>
-                  <p className={admin.payed ? 'paid' : 'unpaid'}>
-                    <strong>Fee:</strong> {admin.payed ? 'Paid' : 'Unpaid'}
+                  <p><strong>Namn:</strong> {admin.firstname && admin.lastname ? `${admin.firstname} ${admin.lastname}` : 'No name provided'}</p>
+                  <p><strong>Epost:</strong> {admin.email || 'Ej angett'}</p>
+                  <p><strong>Memdlem Sedan:</strong> {admin.joined ? new Date(admin.joined.seconds * 1000).toLocaleDateString() : 'No membership info'}</p>
+                  <p className={admin.payed ? 'Betald' : 'Ej betald'}>
+                    <strong>Medlemsavgift</strong> {admin.payed ? 'Betald' : 'Ej betald'}
                   </p>
-                  <p><strong>Favorite Bow:</strong> {admin.bow || 'Not specified'}</p>
-                  <p><strong>Status:</strong> {admin.status || 'Member'}</p>
+                  <p><strong>Favorit pilbåge:</strong> {admin.bow || 'Ej angett'}</p>
+                  <p><strong>Status:</strong> {admin.status || 'Medlem'}</p>
                   <button onClick={() => {
                     setEditingMember(admin);
                     setUpdatedMember({
@@ -282,7 +282,7 @@ return (
                       admin: admin.admin || false,
                     });
                   }}>
-                    Edit
+                    Redigera
                   </button>
                 </li>
               ))}
@@ -296,14 +296,14 @@ return (
             <ul className="members-list">
               {members.map((member) => (
                 <li key={member.id} className="member-item">
-                  <p><strong>Name:</strong> {member.firstname && member.lastname ? `${member.firstname} ${member.lastname}` : 'No name provided'}</p>
-                  <p><strong>Email:</strong> {member.email || 'No email provided'}</p>
-                  <p><strong>Member Since:</strong> {member.joined ? new Date(member.joined.seconds * 1000).toLocaleDateString() : 'No membership info'}</p>
-                  <p className={member.payed ? 'paid' : 'unpaid'}>
-                    <strong>Fee:</strong> {member.payed ? 'Paid' : 'Unpaid'}
+                     <p><strong>Namn:</strong> {member.firstname && member.lastname ? `${member.firstname} ${member.lastname}` : 'No name provided'}</p>
+                  <p><strong>Epost:</strong> {member.email || 'Ej angett'}</p>
+                  <p><strong>Medlem Sedan:</strong> {member.joined ? new Date(member.joined.seconds * 1000).toLocaleDateString() : 'No membership info'}</p>
+                  <p className={member.payed ? 'Betald' : 'Ej betald'}>
+                    <strong>Medlemsavgift</strong> {member.payed ? 'Betald' : 'Ej betald'}
                   </p>
-                  <p><strong>Favorite Bow:</strong> {member.bow || 'Not specified'}</p>
-                  <p><strong>Status:</strong> {member.status || 'Member'}</p>
+                  <p><strong>Favorit pilbåge:</strong> {member.bow || 'Ej angett'}</p>
+                  <p><strong>Status:</strong> {member.status || 'Medlem'}</p>
                   <button onClick={() => {
                     setEditingMember(member);
                     setUpdatedMember({
@@ -314,7 +314,7 @@ return (
                       admin: member.admin || false,
                     });
                   }}>
-                    Edit
+                    Redigera
                   </button>
                 </li>
               ))}
@@ -326,10 +326,10 @@ return (
 
     {editingMember && (
       <form onSubmit={handleSubmit} className="edit-member-form">
-        <h2>Edit Member: {editingMember.firstname} {editingMember.lastname}</h2>
+        <h2>Redigera Member: {editingMember.firstname} {editingMember.lastname}</h2>
 
         <label>
-          First Name:
+          Förnamn:
           <input
             type="text"
             name="firstname"
@@ -341,7 +341,7 @@ return (
         </label>
 
         <label>
-          Last Name:
+          Efternamn:
           <input
             type="text"
             name="lastname"
@@ -353,7 +353,7 @@ return (
         </label>
 
         <label>
-          Email:
+          Epost:
           <input
             type="email"
             name="email"
@@ -365,7 +365,7 @@ return (
         </label>
 
         <label>
-          Membership Paid:
+          Medlemsavgift:
           <select
             name="payed"
             value={updatedMember.payed ? 'true' : 'false'}
@@ -378,7 +378,7 @@ return (
         </label>
 
         <label>
-          Admin:
+          Administratör:
           <select
             name="admin"
             value={updatedMember.admin ? 'true' : 'false'}

@@ -2,12 +2,13 @@ import { useAuth } from '../context/AuthContext';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { Link } from "react-router-dom";
-import { useState } from 'react'; // Import useState to handle mobile menu toggle
+import { useState } from 'react';
 import '../style/navbar.css';
+import logo from '..//assets/logo1.png'; // Se till att lägga till rätt sökväg till din logotypbild
 
 const Navbar = () => {
   const { user, role } = useAuth();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle menu visibility on mobile
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -18,51 +19,163 @@ const Navbar = () => {
     }
   };
 
-  // Toggle mobile menu visibility
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
     <nav>
       <div className="nav-container">
         <div className="nav-logo">
-          <Link to="/">Flatens BSK</Link>
+          <Link to="/">
+            <img src={logo} alt="Flatens BSK Logo" className="logo-img" />
+          </Link>
         </div>
-        <span className="menu-toggle" onClick={toggleMenu}>
-          ☰ {/* Hamburger menu icon */}
+        <span className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+          {isMenuOpen ? '✕' : '☰'}
         </span>
         <ul className={`nav-links ${isMenuOpen ? 'show-menu' : ''}`}>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/banan" onClick={closeMenu}>Banan</Link>
+          </li>
+          <li>
+            <Link to="/medlemskap" onClick={closeMenu}>Medlemskap</Link>
+          </li>
+          <li>
+            <Link to="/historia" onClick={closeMenu}>Historia</Link>
+          </li>
+          <li>
+            <Link to="/contact" onClick={closeMenu}>Contact</Link>
           </li>
           {!user ? (
             <>
               <li>
-                <Link to="/login">Login</Link>
+                <Link to="/login" onClick={closeMenu}>Logga in</Link>
               </li>
             </>
           ) : (
             <>
-              {role === 'admin' && (
+              {(role === 'admin') && (
                 <li>
-                  <Link to="/register">Register</Link>
+                  <Link to="/register" onClick={closeMenu}>Registrera medlem</Link>
                 </li>
               )}
               {(role === 'member' || role === 'admin') && (
                 <li>
-                  <Link to="/members">Members</Link>
+                  <Link to="/members" onClick={closeMenu}>Medlemmar</Link>
                 </li>
               )}
               <li>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout}>Logga ut</button>
               </li>
             </>
           )}
         </ul>
       </div>
+      
     </nav>
   );
 };
 
 export default Navbar;
+
+
+
+// import { useAuth } from '../context/AuthContext';
+// import { signOut } from 'firebase/auth';
+// import { auth } from '../firebase';
+// import { Link } from "react-router-dom";
+// import { useState } from 'react';
+// import '../style/navbar.css';
+
+// const Navbar = () => {
+//   const { user, role } = useAuth();
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+//   const handleLogout = async () => {
+//     try {
+//       await signOut(auth);
+//       window.location.href = '/login';
+//     } catch (error) {
+//       console.error("Error signing out: ", error);
+//     }
+//   };
+
+//   // Toggle mobile menu visibility
+//   const toggleMenu = () => {
+//     setIsMenuOpen(!isMenuOpen);
+//   };
+
+//   // Close the menu
+//   const closeMenu = () => {
+//     setIsMenuOpen(false);
+//   };
+
+//   return (
+//     <nav>
+//       <div className="nav-container">
+//         <div className="nav-logo">
+//           <Link to="/">Flatens BSK</Link>
+//         </div>
+//         <span className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+//           {isMenuOpen ? '✕' : '☰'}
+//         </span>
+//         <ul className={`nav-links ${isMenuOpen ? 'show-menu' : ''}`}>
+//           <li>
+//             <Link to="/" onClick={closeMenu}>Händelser</Link>
+//           </li>
+//           <li>
+//             <Link to="/medlemskap" onClick={closeMenu}>Medlemskap</Link>
+//           </li>
+//           <li>
+//             <Link to="/historia" onClick={closeMenu}>Historia</Link>
+//           </li>
+//           <li>
+//             <Link to="/contact" onClick={closeMenu}>Contact</Link>
+//           </li>
+//           {!user ? (
+//             <>
+//               <li>
+//                 <Link to="/login" onClick={closeMenu}>Logga in</Link>
+//               </li>
+//             </>
+
+//           ) : (
+//             <>
+//               <li>
+//                 <Link onClick={handleLogout}>Logga ut</Link>
+//               </li>
+
+//               <h3 className='nav-heading'>För medlemmar:</h3>
+            
+//               {(role === 'member' || role === 'admin') && (
+//                 <li>
+//                   <Link to="/members" onClick={closeMenu}>Medlemmar</Link>
+//                 </li>
+//               )}
+
+//                 {(role === 'member' || role === 'admin') && (
+//                 <li>
+//                   <Link to="/banan" onClick={closeMenu}>3D bana</Link>
+//                 </li>
+//                 )}
+
+//                 <h3 className='nav-heading'>För admins:</h3>
+//               {(role === 'admin') && (
+//                 <li>
+//                   <Link to="/register" onClick={closeMenu}>Registrera medlem</Link>
+//                 </li>
+//               )}
+//             </>
+//           )}
+//         </ul>
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
