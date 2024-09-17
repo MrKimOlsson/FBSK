@@ -1,0 +1,33 @@
+.user-page-container {
+    padding: 20px;
+  }
+  
+  .user-page-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .user-page-container p {
+    margin: 10px 0;
+  }
+  
+  .edit-user-form {
+    margin: 2rem 0 2rem;
+  }
+  
+  .edit-user-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .edit-user-form input,
+  .edit-user-form select {
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+  }
+  
+
+  .edit-user-form button:hover {
+    background-color: #0056b3;
+  }
+  

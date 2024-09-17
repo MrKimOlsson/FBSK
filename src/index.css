@@ -61,6 +61,7 @@ button {
   cursor: pointer;
   transition: background-color 0.25s ease;
   font-family: "Caudex", serif;
+  margin: 10px 10px;
 }
 button:hover {
   background-color: #3b7c59; /* Lighter green on hover */

@@ -4,7 +4,8 @@ import { auth } from '../firebase';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import '../style/navbar.css';
-import logo from '..//assets/logo1.png'; // Se till att lägga till rätt sökväg till din logotypbild
+import logo from '..//assets/logo1.png';
+import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
   const { user, role } = useAuth();
@@ -35,12 +36,23 @@ const Navbar = () => {
             <img src={logo} alt="Flatens BSK Logo" className="logo-img" />
           </Link>
         </div>
-        <span className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-          {isMenuOpen ? '✕' : '☰'}
-        </span>
+
+        {/* Container for user icon and menu toggle */}
+        <div className="nav-right">
+          {user && (
+            <Link to={`/user/${user.uid}`} className="user-link">
+              <FaUser className="user-icon" />
+            </Link>
+          )}
+
+          <span className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+            {isMenuOpen ? '✕' : '☰'}
+          </span>
+        </div>
+
         <ul className={`nav-links ${isMenuOpen ? 'show-menu' : ''}`}>
           <li>
-            <Link to="/banan" onClick={closeMenu}>Banan</Link>
+            <Link to="/" onClick={closeMenu}>Nyheter</Link>
           </li>
           <li>
             <Link to="/medlemskap" onClick={closeMenu}>Medlemskap</Link>
@@ -49,39 +61,58 @@ const Navbar = () => {
             <Link to="/historia" onClick={closeMenu}>Historia</Link>
           </li>
           <li>
-            <Link to="/contact" onClick={closeMenu}>Contact</Link>
+            <Link to="/contact" onClick={closeMenu}>Kontakt</Link>
           </li>
           {!user ? (
-            <>
-              <li>
-                <Link to="/login" onClick={closeMenu}>Logga in</Link>
-              </li>
-            </>
+            <li>
+              <Link to="/login" onClick={closeMenu}>Logga in</Link>
+            </li>
           ) : (
             <>
-              {(role === 'admin') && (
-                <li>
-                  <Link to="/register" onClick={closeMenu}>Registrera medlem</Link>
-                </li>
-              )}
+
+              
+
+            {/* Separator */}
+            <span className='separator'></span>
+
+
               {(role === 'member' || role === 'admin') && (
                 <li>
                   <Link to="/members" onClick={closeMenu}>Medlemmar</Link>
                 </li>
               )}
+                {(role === 'member' || role === 'admin') && (
+                <li>
+                  <Link to="/banan" onClick={closeMenu}>Banan</Link>
+                </li>
+              )}
+
+              {/* Separator */}
+              <span className='separator'></span>
+
+              {role === 'admin' && (
+                <li>
+                  <Link to="/admin" onClick={closeMenu}>Administration</Link>
+                </li>
+              )}
+
+
+              {/* Separator */}
+              <span className='separator'></span>
               <li>
-                <button onClick={handleLogout}>Logga ut</button>
+                <Link onClick={handleLogout}>Logga ut</Link>
               </li>
+
             </>
           )}
         </ul>
       </div>
-      
     </nav>
   );
 };
 
 export default Navbar;
+
 
 
 

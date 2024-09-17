@@ -1,152 +1,174 @@
 /* General Navbar Styles */
 nav {
-  background-color: rgba(43, 43, 43, 0.95);
-  /* padding: 15px 20px; */
+  background-color: rgb(43, 43, 43);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  z-index: 100; /* Ensure it's on top */
+  box-shadow: 0 2px 8px rgb(0, 0, 0);
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
-  font-family: "MedievalSharp", cursive;
-  font-weight: 400;
-  font-style: normal;
   height: 68px;
-  /* padding: 0;
-  margin: 0; */
+  padding: 0 20px;
+  box-sizing: border-box;
+  /* border-bottom: 1px solid #1b1b1b; */
+  border-bottom: 1px solid #3d3d3d;
 }
 
 /* Navbar Container */
 .nav-container {
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
   align-items: center;
   width: 100%;
 }
+
+/* Logo Styling */
 .logo-img {
   height: 68px;
-  margin-top: 12px;
-}
-/* Logo Styles */
-.nav-logo {
-  font-size: 1.5rem;
-  color: #f1f1f1;
-  font-weight: bold;
-  text-decoration: none;
+  margin: 7px 0 0 0;
 }
 
-.nav-logo a {
+/* Container for user icon and hamburger menu */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between user icon and hamburger */
+}
+
+/* User icon styling */
+.user-icon {
+  font-size: 30px; /* Adjust the size to match the hamburger */
   color: #f1f1f1;
-  text-decoration: none;
+  display: inline-block;
+  line-height: 68px; /* Align with the navbar height */
+}
+
+/* Hamburger menu (menu-toggle) styling */
+.menu-toggle {
+  font-size: 30px;
+  color: #f1f1f1;
+  cursor: pointer;
+  z-index: 201;
+  display: inline-block;
+  line-height: 68px;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Open state for the hamburger menu */
+.menu-toggle.open {
+  transform: rotate(90deg); /* Rotate 90 degrees for X effect */
+  transition: transform 0.3s ease; /* Ensure smooth transition */
 }
 
 /* Navbar List Styles */
 .nav-links {
   list-style-type: none;
-  padding: 4rem 1rem;
+  padding: 0; /* Remove padding here */
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 0;
+  top: 68px; /* Adjusted to align below the navbar */
   right: -300px; /* Initially hidden off-screen */
   height: 100%;
-  width: 250px; /* Sidebar width */
-  background-color: rgba(43, 43, 43, 0.95);
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
-  transition: right 0.3s ease; /* Smooth slide-in animation */
-  z-index: 100;
+  width: 250px;
+  background-color: rgb(43, 43, 43);
+  box-shadow: -2px 8px 8px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease, padding 0.3s ease; /* Smooth slide-in and padding transition */
+  overflow: hidden;
+  z-index: 1;
+  border-top: 1px solid #1b1b1b;
 }
 
 /* Show menu when toggled */
 .nav-links.show-menu {
   right: 0; /* Slide the menu in */
+  padding: 2rem 0; /* Padding when the menu is open */
 }
 
+/* Navbar List Styles */
 .nav-links li {
-  margin: 10px 0;
+  width: 100%; /* Ensure each list item takes up the full width */
 }
 
-/* Link Styles */
 .nav-links li a,
 .nav-links li button {
+  display: block; /* Make links and buttons fill their parent container */
   color: #f1f1f1;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
   padding: 10px 15px;
   transition: background-color 0.3s, color 0.3s;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   background-color: transparent;
   border: none;
   cursor: pointer;
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
+/* Hover effect */
 .nav-links li a:hover,
 .nav-links li button:hover {
   background-color: #2e4d36;
   color: #e0a600;
 }
 
-/* Hamburger Menu Toggle */
-.menu-toggle {
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: #f1f1f1;
-  z-index: 101; /* Ensure toggle stays on top */
-  transition: transform 0.3s ease; /* Smooth transition */
-}
-
-/* Rotate to X when menu is open */
-.menu-toggle.open {
-  transform: rotate(90deg); /* Optional: slight rotation effect */
-}
-
-
-.nav-heading {
-  margin-top: 3rem;
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+.separator {
+  background-color: #1b1b1b;
+  border-top: 1px solid #3d3d3d;
+  height: 2px;
+  width: 100%;
 }
 
 /* Mobile Menu Styles */
 @media (max-width: 768px) {
+
   .nav-links {
-    flex-direction: column; /* Stack items vertically */
-    position: fixed; /* Fix to top */
-    top: 60px; /* Space for navbar */
+    flex-direction: column;
+    position: fixed;
+    top: 68px; /* Align below the navbar */
     left: 0;
     width: 100%;
-    background-color: rgba(43, 43, 43, 0.925);
+    background-color: rgb(43, 43, 43);
     text-align: center;
-    display: none; /* Initially hidden */
-    z-index: 100; /* Ensure menu is on top */
-    padding: 2rem 0 2rem 0;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease; /* Smooth slide down transition */
+    z-index: 100;
+    /* border-top: 1px solid #3d3d3d; */
+    /* border-top: 1px solid #0000; */
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
+  /* border-top: none; */
+
+
   }
 
   .nav-links.show-menu {
-    display: flex; /* Show the menu */
+    max-height: 100vh; /* Set a max-height that fits the content */
+    padding: 2rem 0; /* Padding when the menu is open */
   }
 
   .menu-toggle {
-    display: block; /* Show toggle button */
+    display: block;
+  }
+
+  .menu-toggle.open {
+    transform: rotate(90deg); /* Rotate into an X */
   }
 
   .nav-links li {
     margin: 0;
-    padding: .5rem;
+    /* padding: 0.5rem; */
   }
 
   .nav-links li a,
   .nav-links li button {
-    /* padding: 15px; */
     font-size: 1rem;
   }
 }
-
-
