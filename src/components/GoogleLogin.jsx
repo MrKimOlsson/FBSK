@@ -20,7 +20,7 @@ function GoogleLogin() {
       // Optionally navigate to another page on successful login
       navigate('/'); // Change '/home' to the route you want to navigate to
       
-      alert("Logged in with Google successfully!");
+      // alert("Logged in with Google successfully!");
     } catch (error) {
       console.error("Error logging in with Google:", error);
       setErrorMessage("Failed to log in with Google. Please try again.");

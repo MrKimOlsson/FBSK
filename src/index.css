@@ -1,12 +1,12 @@
-/* Index.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+@font-face {
+  font-family: 'Your Font';
+  src: url('your-font-url') format('woff2');
+  font-display: swap;
+}
 
 
 /* För WebKit-baserade webbläsare (Chrome, Safari) */
@@ -32,11 +32,15 @@ body {
   /* font-family: 'Nunito', sans-serif; */
   /* font-family: 'Montserrat', sans-serif; */
   color: #e1e1e1;
-  background: #1a1a1a url('/images/forest-texture.jpg') no-repeat center center fixed; /* A subtle forest texture */
-  background-size: cover;
   min-height: 100vh;
   line-height: 1.6;
   font-weight: 400;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background: #1a1a1a url('/images/forest-texture.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* Links */
@@ -97,6 +101,123 @@ p {
   margin: 0 auto;
   padding: 2rem;
 }
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.center {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* General Form Styling */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgba(43, 43, 43, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Form Labels */
+label {
+  display: block;
+  font-weight: bold;
+  width: 100%; /* Ensure labels take full width */
+  margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+
+/* Form Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+  width: 100%; /* Ensure inputs and selects take full width */
+  padding: 0.75rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  /* color: #f1f1f1; */
+  font-size: 1rem;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin-bottom: 1rem; /* Space between fields */
+  transition: all 0.3s;
+}
+
+/* Form Textarea */
+textarea {
+  height: 150px; /* Fixed height for textarea */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Form Select */
+select {
+  padding: 0.75rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fffffff2; /* Same background as form */
+  /* color: #f1f1f1; */
+}
+
+form button {
+  width: 100%;
+  margin-top: 0;
+}
+
+
+/* Submit Button */
+button {
+  background-color: #2e4d36;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+button:hover {
+  background-color: #1b3c29;
+}
+
+.googleLogin {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Status Message */
+p {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Contact Info Styling */
+p {
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+}
+
+
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {

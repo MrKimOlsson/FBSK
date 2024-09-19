@@ -32,9 +32,10 @@ const Navbar = () => {
     <nav>
       <div className="nav-container">
         <div className="nav-logo">
-          <Link to="/">
+          {/* <Link to="/">
             <img src={logo} alt="Flatens BSK Logo" className="logo-img" />
-          </Link>
+          </Link> */}
+          <h1>Flaten BSK</h1>
         </div>
 
         {/* Container for user icon and menu toggle */}
@@ -77,13 +78,14 @@ const Navbar = () => {
 
 
               {(role === 'member' || role === 'admin') && (
+              <li>
+                <Link to="/banan" onClick={closeMenu}>3D banan</Link>
+              </li>
+            )}
+            
+              {(role === 'member' || role === 'admin') && (
                 <li>
                   <Link to="/members" onClick={closeMenu}>Medlemmar</Link>
-                </li>
-              )}
-                {(role === 'member' || role === 'admin') && (
-                <li>
-                  <Link to="/banan" onClick={closeMenu}>Banan</Link>
                 </li>
               )}
 

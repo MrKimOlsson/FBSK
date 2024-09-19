@@ -1,31 +1,71 @@
 .hero {
-    position: absolute;
-    width: 100vw;
-    height: 50vh; /* Justera höjd efter behov */
-    overflow: hidden;
-    top: 68px;
-    left: 0;
-  }
-  
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0; /* Gör att bilden är bakom innehållet men synlig */
-  }
-  
-  .hero-content {
-    position: relative;
-    top: 15vh;
-    /* justify-content: center; */
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-    max-width: 100%;
-    z-index: 1; /* Innehållet är överst */
-  }
-  
-  
+  position: absolute;
+  width: 100vw;
+  height: 50vh;
+  overflow: hidden;
+  top: 68px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(31, 31, 31); /* Dark background */
+  overflow: hidden; /* Ensure images don’t spill out */
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth transitions */
+  z-index: 1;
+}
+
+.hero-background.current {
+  opacity: 1; /* Current image visible */
+  transform: scale(1.05); /* Apply zoom to current image */
+  z-index: 2; /* Ensure the current image is on top */
+}
+
+.hero-background.next {
+  opacity: 0; /* Next image starts hidden */
+  transform: scale(1.05); /* Apply zoom to the next image */
+  z-index: 1; /* Keep next image behind the current one */
+}
+
+/* Remove overlay if it's causing issues */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Optional: Adjust or remove if causing issues */
+  z-index: 0; /* Overlay below images */
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  max-width: 100%;
+  z-index: 3; /* Content on top */
+}
+
+.hero-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #2e4d36;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hero-button:hover {
+  background-color: #1a3a24;
+}

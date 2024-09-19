@@ -1,10 +1,16 @@
 import React from 'react'
 import Register from '../components/Register'
+import { FadeInBox, SlideInBox} from '../components/FramerMotion'
+
 
 const AdminPage = () => {
   return (
     <>
-    <Register />
+    <SlideInBox> 
+      <FadeInBox>
+        <Register />
+      </FadeInBox>
+    </SlideInBox> 
     </>
   )
 }

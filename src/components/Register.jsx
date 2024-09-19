@@ -3,6 +3,7 @@ import { auth, db } from "../firebase"; // Import Firestore database
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useAuth } from "../context/AuthContext";
 import { doc, setDoc } from "firebase/firestore"; // Import Firestore methods
+import '../index.css'
 
 function Register() {
   const [email, setEmail] = useState("");

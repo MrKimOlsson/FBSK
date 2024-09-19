@@ -40,10 +40,11 @@ nav {
 
 /* User icon styling */
 .user-icon {
-  font-size: 30px; /* Adjust the size to match the hamburger */
+  font-size: 23px; /* Adjust the size to match the hamburger */
   color: #f1f1f1;
   display: inline-block;
   line-height: 68px; /* Align with the navbar height */
+  margin-top: 7px;
 }
 
 /* Hamburger menu (menu-toggle) styling */
@@ -61,6 +62,7 @@ nav {
 .menu-toggle.open {
   transform: rotate(90deg); /* Rotate 90 degrees for X effect */
   transition: transform 0.3s ease; /* Ensure smooth transition */
+  padding: 0 0 0 2px;
 }
 
 /* Navbar List Styles */

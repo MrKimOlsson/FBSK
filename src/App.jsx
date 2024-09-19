@@ -14,6 +14,7 @@ import HistoryPage from './pages/HistoryPage';
 import ContactPage from './pages/ContactPage';
 import AdminPage from './pages/AdminPage';
 
+
 function App() {
   const { user, role } = useAuth();
 

@@ -1,8 +1,14 @@
 import React from 'react'
+import { FadeInBox, SlideInBox} from '../components/FramerMotion'
+
 
 const HistoryPage = () => {
   return (
-    <div>Historia</div>
+    <SlideInBox> 
+      <FadeInBox>
+        <div>Historia</div>
+      </FadeInBox>
+    </SlideInBox> 
   )
 }
 

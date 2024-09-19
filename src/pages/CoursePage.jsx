@@ -1,8 +1,14 @@
 import React from 'react'
+import { FadeInBox, SlideInBox} from '../components/FramerMotion'
+
 
 const CoursePage = () => {
   return (
-    <div>Banan</div>
+    <SlideInBox> 
+      <FadeInBox>
+        <div>Banan</div>
+      </FadeInBox>
+    </SlideInBox> 
   )
 }
 

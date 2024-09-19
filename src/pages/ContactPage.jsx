@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { FadeInBox, SlideInBox} from '../components/FramerMotion'
+
 import '../style/ContactPage.css'; // Adjust the path as needed
 
 const ContactPage = () => {
@@ -39,55 +41,61 @@ const ContactPage = () => {
   };
 
   return (
-    <div>
-      <h1>Kontakta oss</h1>
-      <p>Telefon: 073-781 38 75</p>
-      <p>E-post: <a href="mailto:flatensbagskytteklubb@gmail.com">flatensbagskytteklubb@gmail.com</a></p>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Ditt namn:
-          <input
-            type="text"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Din e-postadress:
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Ditt telefonnummer:
-          <input
-            type="tel"
-            name="phone"
-            value={form.phone}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Ditt meddelande:
-          <textarea
-            name="message"
-            value={form.message}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </label>
-        <button type="submit">Skicka</button>
-      </form>
-      
-      {status && <p>{status}</p>}
-    </div>
+    <SlideInBox> 
+      <FadeInBox>
+        <div>
+          <h1>Kontakta oss</h1>
+          <p>Telefon: 073-781 38 75</p>
+          <p>E-post: <a href="mailto:flatensbagskytteklubb@gmail.com">flatensbagskytteklubb@gmail.com</a></p>
+
+          <form onSubmit={handleSubmit}>
+            <label>
+              Ditt namn:
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Din e-postadress:
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Ditt telefonnummer:
+              <input
+                type="tel"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              Ditt meddelande:
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+            </label>
+            <button type="submit">Skicka</button>
+          </form>
+          
+          {status && <p>{status}</p>}
+        </div>
+        
+    </FadeInBox>
+  </SlideInBox> 
   );
 };
 

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import GoogleLogin from '../components/GoogleLogin';
+import { FadeInBox, SlideInBox} from '../components/FramerMotion'
 import '../style/LoginPage.css'
 
 function Login() {
@@ -22,6 +23,8 @@ function Login() {
   };
 
   return (
+    <SlideInBox> 
+      <FadeInBox>
     <div className="login-page">
       <form className='loginForm' onSubmit={handleLogin}>
         <input 
@@ -45,6 +48,8 @@ function Login() {
         <GoogleLogin />
       </div>
     </div>
+    </FadeInBox>
+    </SlideInBox> 
   );
 }
 
