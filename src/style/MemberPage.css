@@ -1,13 +1,16 @@
 /* Members List */
 .members-list {
     list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 800px;
+    /* padding: 0; */
+    /* margin: 0 auto; */
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     gap: 2rem;
     margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+    
   }
   
   .member-item {
@@ -16,20 +19,26 @@
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #f1f1f1;
+    color: #000000;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
+    /* align-items: center; */
+    /* gap: .1rem; */
+    min-width: 300px;
+    background-color: rgba(243, 243, 243, 0.95);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.253);
+    border: 1px solid #f7f7f7;
+    text-align: left;
+    
   }
-  
+
   .member-item p {
-    color: #ded3c5; /* Light beige for text */
-    text-align: left; /* Align text to the left */
+    padding: 0px 0 0 10px;
   }
-  
-  .member-item strong {
-    color: #ffffff; /* White for emphasis */
-  }
+
+
+
   
   /* Paid/Unpaid Colors */
   .paid {
@@ -53,6 +62,8 @@
   .edit-member-form label {
     font-size: 1rem;
     color: #ffffff;
+    color: #000000;
+
   }
   
   .edit-member-form input,
@@ -62,7 +73,8 @@
     border: 1px solid #555;
     background-color: #2a2a2a;
     border-radius: 5px;
-    color: #ffffff;
+    color: #000000;
+
   }
   
   .edit-member-form button {
@@ -70,10 +82,12 @@
     color: #fff;
     padding: 0.75rem 1.5rem;
     cursor: pointer;
+
   }
   
   .edit-member-form button:hover {
     background-color: #d49d00; /* Darker on hover */
+
   }
   
   /* Ensure the content is not hidden behind the navbar */
@@ -83,6 +97,9 @@
   @media (max-width: 768px) {
     .members-list {
       padding: 1rem;
+      display: flex;
+      /* flex-wrap: wrap; */
+      flex-direction: column;
     }
     .member-item,
     .edit-member-form {
@@ -97,8 +114,6 @@
 
   @media (max-width: 435px) {
 
-    .margin-top {
-        margin-top: 10rem;
-    }
+  
 
   }

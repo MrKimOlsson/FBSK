@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { MembersContext } from '../context/MembersContext';
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore'; // Import for fetching role from Firestore
 import { getAuth } from 'firebase/auth';
 import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import '../style/MemberPage.css';
+import '../index.css';
 import '../App.css';
 
 const SlideInBox = React.lazy(() => import('../components/FramerMotion').then(module => ({ default: module.SlideInBox })));
@@ -14,8 +15,26 @@ const EditMemberForm = React.lazy(() => import('../components/EditMemberForm'));
 const MembersPage = () => {
   const { members, admins, setMembers, setAdmins, loading } = useContext(MembersContext);
   const [editingMember, setEditingMember] = useState(null);
+  const [userRole, setUserRole] = useState(null); // Store the role of the logged-in user
   const auth = getAuth();
   const navigate = useNavigate();
+
+  // Fetch the role of the currently logged-in user
+  useEffect(() => {
+    const fetchUserRole = async () => {
+      const currentUser = auth.currentUser;
+      if (currentUser) {
+        const userDocRef = doc(db, 'users', currentUser.uid);
+        const userDoc = await getDoc(userDocRef);
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          setUserRole(userData.role); // Set user role (e.g., 'admin' or 'member')
+        }
+      }
+    };
+
+    fetchUserRole();
+  }, [auth]);
 
   // useEffect för att hantera medlemmar och admins endast vid förändring
   useEffect(() => {
@@ -30,6 +49,8 @@ const MembersPage = () => {
     <React.Suspense fallback={<div>Loading...</div>}>
       <SlideInBox>
         <FadeInBox>
+          <div className='wrapper'>
+
           <div className="members-container">
             {loading ? (
               <p>Loading members...</p>
@@ -37,7 +58,7 @@ const MembersPage = () => {
               <>
                 {admins.length > 0 && (
                   <div>
-                    <h2 className="margin-top">Admins</h2>
+                    <h2 className="margin-top">Administratörer</h2>
                     <ul className="members-list">
                       {admins.map((admin) => (
                         <li key={admin.id} className="member-item" onClick={() => handleCardClick(admin.id)}>
@@ -46,7 +67,9 @@ const MembersPage = () => {
                           <p className={admin.payed ? 'Betald' : 'Ej betald'}>
                             <strong>Medlemsavgift</strong> {admin.payed ? 'Betald' : 'Ej betald'}
                           </p>
-                          <button onClick={() => setEditingMember(admin)}>Redigera</button>
+                          {userRole === 'admin' && ( // Show edit button only if user is an admin
+                            <button onClick={() => setEditingMember(admin)}>Redigera</button>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -55,7 +78,7 @@ const MembersPage = () => {
 
                 {members.length > 0 && (
                   <div>
-                    <h2>Members</h2>
+                    <h2>Medlemmar</h2>
                     <ul className="members-list">
                       {members.map((member) => (
                         <li key={member.id} className="member-item" onClick={() => handleCardClick(member.id)}>
@@ -64,7 +87,9 @@ const MembersPage = () => {
                           <p className={member.payed ? 'Betald' : 'Ej betald'}>
                             <strong>Medlemsavgift</strong> {member.payed ? 'Betald' : 'Ej betald'}
                           </p>
-                          <button onClick={() => setEditingMember(member)}>Redigera</button>
+                          {userRole === 'admin' && ( // Show edit button only if user is an admin
+                            <button onClick={() => setEditingMember(member)}>Redigera</button>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -84,6 +109,7 @@ const MembersPage = () => {
               </React.Suspense>
             )}
           </div>
+          </div>
         </FadeInBox>
       </SlideInBox>
     </React.Suspense>
@@ -91,6 +117,7 @@ const MembersPage = () => {
 };
 
 export default MembersPage;
+
 
 
 

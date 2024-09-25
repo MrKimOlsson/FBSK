@@ -1,15 +1,14 @@
-import React from 'react'
-import { FadeInBox, SlideInBox} from '../components/FramerMotion'
-
+// CoursePage.jsx
+import React from 'react';
+import RouteMap from '../components/MapComponent'; // Importera RouteMap via default export
+import { FadeInBox, SlideInBox} from '../components/FramerMotion';
 
 const CoursePage = () => {
   return (
-    <SlideInBox> 
-      <FadeInBox>
-        <div>Banan</div>
-      </FadeInBox>
-    </SlideInBox> 
-  )
+    
+        <RouteMap /> 
+   
+  );
 }
 
-export default CoursePage
+export default CoursePage;

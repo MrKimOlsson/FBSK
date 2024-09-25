@@ -13,6 +13,7 @@ import Navbar from "./components/Navbar";
 import HistoryPage from './pages/HistoryPage';
 import ContactPage from './pages/ContactPage';
 import AdminPage from './pages/AdminPage';
+import ApplyPage from './pages/ApplyPage';
 
 
 function App() {
@@ -26,11 +27,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/medlemskap" element={<MembershipPage />} />
           <Route path="/historia" element={<HistoryPage />} />
-          <Route path="/banan" element={<CoursePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/members" element={<MembersPage />} />
+          <Route path="/kartan" element={<CoursePage />} />
+          <Route path="/kontakt" element={<ContactPage />} />
+          <Route path="/ansokan" element={<ApplyPage />} />
           <Route path="/user/:id" element={<UserPage />} />
-          <Route path="/members" element={user && role === 'admin' ? <MembersPage /> : <Navigate to="/" />} />
+          <Route path="/medlemmar" element={user && role === 'admin' ? <MembersPage /> : <Navigate to="/" />} />
           <Route path="/admin" element={user && role === 'admin' ? <AdminPage /> : <Navigate to="/" />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/google-login" element={<GoogleLogin />} />

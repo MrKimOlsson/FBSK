@@ -32,23 +32,19 @@ const Navbar = () => {
     <nav>
       <div className="nav-container">
         <div className="nav-logo">
-          {/* <Link to="/">
-            <img src={logo} alt="Flatens BSK Logo" className="logo-img" />
-          </Link> */}
-          <h1>Flaten BSK</h1>
+          <Link to="/">
+            <img src={logo} alt="Flatens BSK" className="logo-img" />
+          </Link>
+          {/* <h1>FBSK</h1> */}
         </div>
 
         {/* Container for user icon and menu toggle */}
         <div className="nav-right">
-          {user && (
-            <Link to={`/user/${user.uid}`} className="user-link">
-              <FaUser className="user-icon" />
-            </Link>
-          )}
+          
 
-          <span className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+          <div className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
             {isMenuOpen ? '✕' : '☰'}
-          </span>
+          </div>
         </div>
 
         <ul className={`nav-links ${isMenuOpen ? 'show-menu' : ''}`}>
@@ -62,9 +58,10 @@ const Navbar = () => {
             <Link to="/historia" onClick={closeMenu}>Historia</Link>
           </li>
           <li>
-            <Link to="/contact" onClick={closeMenu}>Kontakt</Link>
+            <Link to="/kontakt" onClick={closeMenu}>Kontakt</Link>
           </li>
           {!user ? (
+            
             <li>
               <Link to="/login" onClick={closeMenu}>Logga in</Link>
             </li>
@@ -78,14 +75,19 @@ const Navbar = () => {
 
 
               {(role === 'member' || role === 'admin') && (
-              <li>
-                <Link to="/banan" onClick={closeMenu}>3D banan</Link>
+                <li className="members-menu">
+                <Link to="/kartan" onClick={closeMenu}>Kartan</Link>
               </li>
             )}
             
               {(role === 'member' || role === 'admin') && (
-                <li>
-                  <Link to="/members" onClick={closeMenu}>Medlemmar</Link>
+                <li className="members-menu">
+                  <Link to="/medlemmar" onClick={closeMenu}>Medlemmar</Link>
+                </li>
+              )}
+              {user && (
+                <li className="members-menu">
+                  <Link to={`/user/${user.uid}`} onClick={closeMenu}> Profil</Link>
                 </li>
               )}
 
@@ -93,7 +95,7 @@ const Navbar = () => {
               <span className='separator'></span>
 
               {role === 'admin' && (
-                <li>
+                <li className="admins-menu">
                   <Link to="/admin" onClick={closeMenu}>Administration</Link>
                 </li>
               )}

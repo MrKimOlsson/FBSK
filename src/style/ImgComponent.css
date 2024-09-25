@@ -1,0 +1,24 @@
+.ImgComponent {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 30rem;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-bottom: 30rem;
+}
+
+.ImgComponent1 {
+    width: 50vw;
+    height: 30rem;
+}
+
+.ImgComponent2 {
+    width: 50vw;
+    height: 30rem;
+}

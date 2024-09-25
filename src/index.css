@@ -31,50 +31,65 @@ html {
 body {
   /* font-family: 'Nunito', sans-serif; */
   /* font-family: 'Montserrat', sans-serif; */
-  color: #e1e1e1;
+  color: #0e0e0e;
   min-height: 100vh;
   line-height: 1.6;
   font-weight: 400;
   height: 100%;
-  margin: 0;
   display: flex;
   justify-content: center;
-  background: #1a1a1a url('/images/forest-texture.jpg') no-repeat center center fixed;
-  background-size: cover;
+  /* align-items: center; */
+  background-color: #ffffff;
 }
 
 /* Links */
 a {
   font-weight: 500;
-  color: #e0a600; /* Warm yellow accent */
+  color: #008b23;
   text-decoration: none;
+  font-weight: 600;
 }
 a:hover {
   color: #d49d00; /* Darker yellow on hover */
 }
+
 
 /* Buttons */
 button {
   border-radius: 8px;
   border: none;
   padding: 0.75em 1.5em;
+  margin: 1rem;
   font-size: 1em;
   font-weight: 500;
-  background-color: #2e4d36; /* Deep forest green for buttons */
-  color: #f1f1f1;
+  background-color: #2e4d36;
+  color: #ffffff;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.25s ease;
   font-family: "Caudex", serif;
-  margin: 10px 10px;
+  /* margin: 10px 10px; */
 }
 button:hover {
   background-color: #3b7c59; /* Lighter green on hover */
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   font-weight: 600;
-  color: #f1f1f1;
+  color: #0e0e0e;
+  margin-bottom: 1rem;
+  font-family: "Caudex", serif;
+}
+
+/* Headings */
+h1  {
+  font-weight: 600;
+  color: #0e0e0e;
+
+  /* color: #0e0e0e; */
+
+  /* color: #f1f1f1; */
   margin-bottom: 1rem;
   font-family: "Caudex", serif;
 }
@@ -87,12 +102,26 @@ h2 {
   font-size: 2rem;
 }
 
+
+h3 {
+  font-size: 1.5rem;
+}
+
+
 p {
   margin-bottom: 1rem;
-  color: #cccccc;
+  /* color: #cccccc; */
+  color: #0e0e0e;
   font-family: "Caudex", serif;
   font-weight: 600;
   font-style: normal;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 /* Container */
@@ -102,12 +131,26 @@ p {
   padding: 2rem;
 }
 
+.pusher {
+  /* margin-top: 30rem; */
+  height: 93vh;
+  width: 100%;
+}
+
+.divider {
+  /* margin-top: 9rem; */
+  height: 90vh;
+  width: 100%;
+}
+
+
 .center-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .center {
   /* width: 100%; */
   display: flex;
@@ -117,19 +160,30 @@ p {
 }
 
 
+.card {
+  /* background-color: #f5f5f5; */
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: rgba(243, 243, 243, 0.95);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.253);
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
 /* General Form Styling */
 form {
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: rgba(43, 43, 43, 0.95);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  background-color: rgba(243, 243, 243, 0.95);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.253);
+  border: 1px solid #f7f7f7;
 }
 
 /* Form Labels */
@@ -150,7 +204,7 @@ textarea,
 select {
   width: 100%; /* Ensure inputs and selects take full width */
   padding: 0.75rem;
-  border: 1px solid #444;
+  border: 1px solid #b1b1b1;
   border-radius: 5px;
   /* color: #f1f1f1; */
   font-size: 1rem;
@@ -175,29 +229,9 @@ select {
   /* color: #f1f1f1; */
 }
 
-form button {
-  width: 100%;
-  margin-top: 0;
-}
 
 
-/* Submit Button */
-button {
-  background-color: #2e4d36;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 
-}
-
-button:hover {
-  background-color: #1b3c29;
-}
 
 .googleLogin {
   display: flex;

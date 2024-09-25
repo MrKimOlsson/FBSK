@@ -1,20 +1,14 @@
 /* General Navbar Styles */
 nav {
-  background-color: rgb(43, 43, 43);
+  color: #000;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  box-shadow: 0 2px 8px rgb(0, 0, 0);
+  width: 100vw;
   z-index: 100;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 68px;
-  padding: 0 20px;
-  box-sizing: border-box;
-  /* border-bottom: 1px solid #1b1b1b; */
-  border-bottom: 1px solid #3d3d3d;
 }
 
 /* Navbar Container */
@@ -22,155 +16,156 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 100vw;
+
 }
 
 /* Logo Styling */
 .logo-img {
-  height: 68px;
-  margin: 7px 0 0 0;
+  height: 58px;
+  width: 58px;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+  
 }
 
 /* Container for user icon and hamburger menu */
 .nav-right {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2000;
+  background-color: #ffffff;
+  border: 2px solid #000;
   display: flex;
   align-items: center;
-  gap: 15px; /* Space between user icon and hamburger */
-}
+  justify-content: center;
+  padding: 2px 0px 0 0;
 
-/* User icon styling */
-.user-icon {
-  font-size: 23px; /* Adjust the size to match the hamburger */
-  color: #f1f1f1;
-  display: inline-block;
-  line-height: 68px; /* Align with the navbar height */
-  margin-top: 7px;
 }
 
 /* Hamburger menu (menu-toggle) styling */
 .menu-toggle {
-  font-size: 30px;
-  color: #f1f1f1;
+  font-size: 21px;
+  font-weight:500;
+  color: #000000;
   cursor: pointer;
-  z-index: 201;
+  z-index: 2000; /* Ensure it stays on top of everything */
   display: inline-block;
-  line-height: 68px;
-  transition: transform 0.3s ease; /* Smooth transition */
+  transition: transform 0.3s ease;
 }
 
 /* Open state for the hamburger menu */
 .menu-toggle.open {
-  transform: rotate(90deg); /* Rotate 90 degrees for X effect */
-  transition: transform 0.3s ease; /* Ensure smooth transition */
-  padding: 0 0 0 2px;
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+  padding: 2px 2px 0 0;
+
 }
 
 /* Navbar List Styles */
 .nav-links {
   list-style-type: none;
-  padding: 0; /* Remove padding here */
-  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 68px; /* Adjusted to align below the navbar */
+  top: 0px;
   right: -300px; /* Initially hidden off-screen */
-  height: 100%;
+  height: 100vh;
   width: 250px;
-  background-color: rgb(43, 43, 43);
+  background-color: rgb(255, 255, 255);
   box-shadow: -2px 8px 8px rgba(0, 0, 0, 0.3);
-  transition: right 0.3s ease, padding 0.3s ease; /* Smooth slide-in and padding transition */
-  overflow: hidden;
-  z-index: 1;
-  border-top: 1px solid #1b1b1b;
+  transition: right 0.3s ease, opacity 0.3s ease;
+  opacity: 0; /* Hidden by default */
+  z-index: 1000; /* Lower than .menu-toggle */
+  padding: 4rem 0;
+
 }
 
 /* Show menu when toggled */
 .nav-links.show-menu {
-  right: 0; /* Slide the menu in */
-  padding: 2rem 0; /* Padding when the menu is open */
+  right: 0px;
+  opacity: 1; /* Fade in when showing */
 }
 
 /* Navbar List Styles */
 .nav-links li {
-  width: 100%; /* Ensure each list item takes up the full width */
+  width: 100%;
+  transition: transform 0.3s ease;
 }
 
 .nav-links li a,
 .nav-links li button {
-  display: block; /* Make links and buttons fill their parent container */
-  color: #f1f1f1;
+  display: block;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
   padding: 10px 15px;
   transition: background-color 0.3s, color 0.3s;
-  /* border-radius: 5px; */
   background-color: transparent;
   border: none;
   cursor: pointer;
-  width: 100%; /* Ensure full width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  width: 100%;
 }
 
 /* Hover effect */
 .nav-links li a:hover,
 .nav-links li button:hover {
-  background-color: #2e4d36;
-  color: #e0a600;
+  background-color: #f3f3f3;
+  color: #073107;
 }
 
+.nav-links li a {
+  color: #000;
+}
+
+
+
 .separator {
-  background-color: #1b1b1b;
-  border-top: 1px solid #3d3d3d;
-  height: 2px;
+  background-color: #dadada;
+  height: 1px;
   width: 100%;
+}
+
+.members-menu {
+  background-color: #f0fdee;
+}
+
+.admins-menu {
+  background-color: #f5f7fd;
 }
 
 /* Mobile Menu Styles */
 @media (max-width: 768px) {
-
   .nav-links {
     flex-direction: column;
-    position: fixed;
-    top: 68px; /* Align below the navbar */
     left: 0;
     width: 100%;
-    background-color: rgb(43, 43, 43);
-    text-align: center;
-    max-height: 0; /* Initially hidden */
+    max-height: 0;
+    opacity: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease; /* Smooth slide down transition */
+    transition: max-height 0.3s ease-out, padding 0.3s ease, opacity 0.3s ease;
     z-index: 100;
-    /* border-top: 1px solid #3d3d3d; */
-    /* border-top: 1px solid #0000; */
-    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
-  /* border-top: none; */
-
-
   }
 
   .nav-links.show-menu {
-    max-height: 100vh; /* Set a max-height that fits the content */
-    padding: 2rem 0; /* Padding when the menu is open */
+    max-height: 100vh;
+    opacity: 1;
+    padding: 3rem 0;
   }
 
   .menu-toggle {
     display: block;
   }
 
-  .menu-toggle.open {
-    transform: rotate(90deg); /* Rotate into an X */
-  }
-
-  .nav-links li {
-    margin: 0;
-    /* padding: 0.5rem; */
-  }
-
   .nav-links li a,
   .nav-links li button {
     font-size: 1rem;
   }
+
+  
 }
